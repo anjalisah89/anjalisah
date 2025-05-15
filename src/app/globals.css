@@ -1,26 +1,348 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* -------------------------------------------------------------------------- */
+/* Global Base Styles */
+/* -------------------------------------------------------------------------- */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-default);
+  color: var(--text-primary);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  transition: background-color 0.2s ease-out, color 0.2s ease-out;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Layout and Structural Elements */
+/* -------------------------------------------------------------------------- */
+header {
+  background-color: var(--header-bg);
+  color: var(--header-fg);
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--header-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 60px;
+}
+
+.sidebar {
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-fg);
+  width: 250px;
+  height: calc(100vh);
+  padding: 1.5rem 1rem;
+  float: left;
+  overflow-y: auto;
+  border-right: 1px solid var(--sidebar-border);
+}
+
+.main-content {
+  margin-left: 250px;
+  padding: 2rem;
+  background-color: var(--bg-default);
+  min-height: calc(100vh);
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.form-elements {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  margin-bottom: 1rem;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* Typography and Links */
+/* -------------------------------------------------------------------------- */
+a {
+  color: var(--text-link);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  /* Added smooth transition */
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Sidebar specific link styling */
+.sidebar a {
+  display: block;
+  padding: 0.5rem 0;
+  border-radius: 4px;
+  padding-left: 0.5rem;
+}
+
+.sidebar a:hover {
+  background-color: var(--bgColor-emphasis);
+  text-decoration: none;
+}
+
+html.light .sidebar a:hover {
+  background-color: var(--bg-muted);
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* Buttons */
+/* -------------------------------------------------------------------------- */
+button,
+.button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+  border: 1px solid transparent;
+}
+
+button:focus-visible,
+.button:focus-visible {
+  outline: 2px solid var(--focus-ring-color);
+  outline-offset: 2px;
+}
+
+button:disabled,
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+/* Primary Button */
+button.primary,
+.button.primary {
+  background-color: var(--button-primary-bgColor-rest);
+  color: var(--button-primary-fgColor-rest);
+  border-color: var(--button-primary-borderColor-rest);
+}
+
+button.primary:hover:not(:disabled),
+.button.primary:hover:not(:disabled) {
+  background-color: var(--button-primary-bgColor-hover);
+  border-color: var(--button-primary-borderColor-hover);
+}
+
+button.primary:active:not(:disabled),
+.button.primary:active:not(:disabled) {
+  background-color: var(--button-primary-bgColor-active);
+  border-color: var(--button-primary-borderColor-active);
+}
+
+button.primary:disabled,
+.button.primary:disabled {
+  background-color: var(--button-primary-bgColor-disabled);
+  color: var(--button-primary-fgColor-disabled);
+  border-color: var(--button-primary-borderColor-disabled);
+}
+
+/* Secondary Button */
+button.secondary,
+.button.secondary {
+  background-color: var(--button-secondary-bgColor-rest);
+  color: var(--button-secondary-fgColor-rest);
+  border-color: var(--button-secondary-borderColor-rest);
+  /* Use border-color var */
+}
+
+button.secondary:hover:not(:disabled),
+.button.secondary:hover:not(:disabled) {
+  background-color: var(--button-secondary-bgColor-hover);
+  border-color: var(--button-secondary-borderColor-hover);
+}
+
+button.secondary:active:not(:disabled),
+.button.secondary:active:not(:disabled) {
+  background-color: var(--button-secondary-bgColor-active);
+  border-color: var(--button-secondary-borderColor-active);
+}
+
+button.secondary:disabled,
+.button.secondary:disabled {
+  background-color: var(--button-secondary-bgColor-disabled);
+  color: var(--button-secondary-fgColor-disabled);
+  border-color: var(--button-secondary-borderColor-disabled);
+}
+
+/* Danger Button */
+button.danger,
+.button.danger {
+  color: var(--button-danger-fgColor-override-for-dark-bg, var(--button-danger-fgColor-rest));
+  background-color: var(--button-danger-bgColor-rest);
+  border-color: var(--button-danger-borderColor-rest);
+}
+
+/* Light theme override for danger button text color */
+html.light button.danger,
+html.light .button.danger {
+  color: var(--button-danger-fgColor-rest);
+}
+
+button.danger:hover:not(:disabled),
+.button.danger:hover:not(:disabled) {
+  background-color: var(--button-danger-bgColor-hover);
+  border-color: var(--button-danger-borderColor-hover);
+}
+
+button.danger:active:not(:disabled),
+.button.danger:active:not(:disabled) {
+  background-color: var(--button-danger-bgColor-active);
+  color: var(--button-danger-fgColor-active);
+}
+
+button.danger:disabled,
+.button.danger:disabled {
+  background-color: var(--bgColor-danger-muted);
+  color: var(--button-danger-fgColor-disabled);
+  border-color: var(--borderColor-danger-muted);
+}
+
+button.outline,
+.button.outline {
+  background-color: transparent;
+  color: var(--button-outline-fgColor-rest);
+  border-color: var(--button-outline-borderColor-rest);
+}
+
+button.outline:hover:not(:disabled),
+.button.outline:hover:not(:disabled) {
+  background-color: var(--button-outline-bgColor-hover);
+  color: var(--button-outline-fgColor-hover);
+  border-color: var(--button-outline-borderColor-hover);
+}
+
+button.outline:disabled,
+.button.outline:disabled {
+  color: var(--button-outline-fgColor-disabled);
+  border-color: var(--button-outline-borderColor-disabled);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Icons */
+/* -------------------------------------------------------------------------- */
+.icon {
+  color: var(--icon-primary);
+  font-size: 1.2em;
+  /* Consistent sizing */
+  display: inline-block;
+  vertical-align: middle;
+  /* Use logical properties for spacing */
+  margin-inline-end: 0.3em;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Forms */
+/* -------------------------------------------------------------------------- */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  display: block;
+  width: 100%;
+  background-color: var(--input-bg);
+  color: var(--input-fg);
+  border: 1px solid var(--input-border);
+  padding: 0.6rem 0.8rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder,
+textarea::placeholder {
+  color: var(--input-placeholder-fg);
+  opacity: 0.8;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--input-focus-border);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--focus-ring-color) 50%, transparent);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Code Blocks */
+/* -------------------------------------------------------------------------- */
+pre,
+code {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  background-color: var(--text-preformat-bg);
+  color: var(--text-preformat-fg);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+pre {
+  display: block;
+  padding: 1em;
+  overflow-x: auto;
+  border-radius: 6px;
+  border: 1px solid var(--border-default);
+  margin: 1em 0;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Utility Classes (Optional, but good practice for common patterns) */
+/* -------------------------------------------------------------------------- */
+
+.text-muted {
+  color: var(--text-secondary);
+}
+
+.bg-default {
+  background-color: var(--bg-default);
+}
+
+.bg-muted {
+  background-color: var(--bg-muted);
+}
+
+.bg-emphasis {
+  background-color: var(--bgColor-emphasis);
+}
+
+.bg-accent-muted {
+  background-color: var(--bg-accent-muted);
+}
+
+.border-default {
+  border-color: var(--border-default);
+}
+
+.border-accent {
+  border-color: var(--border-accent);
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
