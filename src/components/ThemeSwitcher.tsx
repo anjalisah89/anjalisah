@@ -1,48 +1,37 @@
-"use client";
+'use client';
 
-import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
+import { setThemeCookie } from '@/app/utils/actions';
 
-export const ThemeSwitcher = () => {
+export function ThemeSwitcher() {
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
   const [mounted, setMounted] = useState(false);
-  const { resolvedTheme, setTheme } = useTheme(); 
 
+  // useEffect to read the initial theme from the ssr data-theme attribute
   useEffect(() => {
+    const initialTheme = document.documentElement.getAttribute('data-theme') as 'light' | 'dark' || 'dark';
+    setTheme(initialTheme);
     setMounted(true);
   }, []);
 
+  // Don't show the button until the component render
   if (!mounted) {
-    return (
-      <button className="primary" aria-hidden="true" style={{ opacity: 0 }} disabled>
-        Loading...
-      </button>
-    );
+    return null;
   }
 
-  const isDarkMode = resolvedTheme === 'dark';
+  // Function to update data-theme
+  const toggleTheme = async () => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+    document.documentElement.setAttribute('data-theme', newTheme);
 
-  const toggleTheme = () => {
-    setTheme(isDarkMode ? 'light' : 'dark');
+    // Call the server action to update the cookie
+    await setThemeCookie(newTheme);
   };
 
   return (
-    <button
-      onClick={toggleTheme}
-      className="secondary"
-      aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
-      title={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
-    >
-      {isDarkMode ? (
-        <>
-          <span role="img" aria-label="Sun icon" style={{ marginRight: '0.5em' }}>🌞</span>
-          Light Mode
-        </>
-      ) : (
-        <>
-          <span role="img" aria-label="Moon icon" style={{ marginRight: '0.5em' }}>🌙</span>
-          Dark Mode
-        </>
-      )}
+    <button className='secondary' onClick={toggleTheme}>
+      {theme === 'dark' ? 'Light' : 'Dark'} Mode
     </button>
   );
-};
+}

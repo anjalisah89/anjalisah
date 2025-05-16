@@ -1,9 +1,7 @@
-/* -------------------------------------------------------------------------- */
 /* Global Base Styles */
-/* -------------------------------------------------------------------------- */
 body {
-  background-color: var(--bg-default);
-  color: var(--text-primary);
+  background-color: var(--bgColor-default);
+  color: var(--fgColor-default);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin: 0;
   padding: 0;
@@ -17,14 +15,12 @@ body {
   box-sizing: border-box;
 }
 
-/* -------------------------------------------------------------------------- */
 /* Layout and Structural Elements */
-/* -------------------------------------------------------------------------- */
 header {
-  background-color: var(--header-bg);
-  color: var(--header-fg);
+  background-color: var(--header-bgColor);
+  color: var(--header-fgColor-default);
   padding: 1rem 1.5rem;
-  border-bottom: 1px solid var(--header-border);
+  border-bottom: 1px solid var(--header-borderColor-divider);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,20 +28,20 @@ header {
 }
 
 .sidebar {
-  background-color: var(--sidebar-bg);
-  color: var(--sidebar-fg);
+  background-color: var(--bgColor-default);
+  color: var(--fgColor-default);
   width: 250px;
   height: calc(100vh);
   padding: 1.5rem 1rem;
   float: left;
   overflow-y: auto;
-  border-right: 1px solid var(--sidebar-border);
+  border-right: 1px solid var(--borderColor-default);
 }
 
 .main-content {
   margin-left: 250px;
   padding: 2rem;
-  background-color: var(--bg-default);
+  background-color: var(--main-content-bgColor);
   min-height: calc(100vh);
 }
 
@@ -65,42 +61,41 @@ header {
   margin-bottom: 1rem;
 }
 
-
-/* -------------------------------------------------------------------------- */
 /* Typography and Links */
-/* -------------------------------------------------------------------------- */
 a {
-  color: var(--text-link);
+  color: var(--fgColor-link);
   text-decoration: none;
   transition: color 0.2s ease;
-  /* Added smooth transition */
 }
 
 a:hover {
   text-decoration: underline;
 }
 
-/* Sidebar specific link styling */
+.sidebar {
+  border-right: 1px solid var(--color-border-muted); 
+}
+
 .sidebar a {
   display: block;
   padding: 0.5rem 0;
   border-radius: 4px;
   padding-left: 0.5rem;
+  color: var(--fgColor-default); 
+}
+
+@media (max-width: 991.98px) { 
+  .sidebar {
+    display: none;
+  }
 }
 
 .sidebar a:hover {
-  background-color: var(--bgColor-emphasis);
+  background-color: var(--sidebar-link-bgColor-hover);
   text-decoration: none;
 }
 
-html.light .sidebar a:hover {
-  background-color: var(--bg-muted);
-}
-
-
-/* -------------------------------------------------------------------------- */
 /* Buttons */
-/* -------------------------------------------------------------------------- */
 button,
 .button {
   padding: 0.6rem 1.2rem;
@@ -118,7 +113,8 @@ button,
 
 button:focus-visible,
 .button:focus-visible {
-  outline: 2px solid var(--focus-ring-color);
+  /* Use focus-outlineColor for the focus ring color */
+  outline: 2px solid var(--focus-outlineColor);
   outline-offset: 2px;
 }
 
@@ -126,6 +122,7 @@ button:disabled,
 .button:disabled {
   cursor: not-allowed;
   opacity: 0.65;
+  /* This opacity value seems okay */
 }
 
 /* Primary Button */
@@ -160,8 +157,8 @@ button.secondary,
 .button.secondary {
   background-color: var(--button-secondary-bgColor-rest);
   color: var(--button-secondary-fgColor-rest);
-  border-color: var(--button-secondary-borderColor-rest);
   /* Use border-color var */
+  border-color: var(--button-secondary-borderColor-rest);
 }
 
 button.secondary:hover:not(:disabled),
@@ -191,12 +188,6 @@ button.danger,
   border-color: var(--button-danger-borderColor-rest);
 }
 
-/* Light theme override for danger button text color */
-html.light button.danger,
-html.light .button.danger {
-  color: var(--button-danger-fgColor-rest);
-}
-
 button.danger:hover:not(:disabled),
 .button.danger:hover:not(:disabled) {
   background-color: var(--button-danger-bgColor-hover);
@@ -211,11 +202,13 @@ button.danger:active:not(:disabled),
 
 button.danger:disabled,
 .button.danger:disabled {
+  /* Use standardized disabled and muted variables */
   background-color: var(--bgColor-danger-muted);
   color: var(--button-danger-fgColor-disabled);
   border-color: var(--borderColor-danger-muted);
 }
 
+/* Outline Button */
 button.outline,
 .button.outline {
   background-color: transparent;
@@ -236,31 +229,25 @@ button.outline:disabled,
   border-color: var(--button-outline-borderColor-disabled);
 }
 
-/* -------------------------------------------------------------------------- */
 /* Icons */
-/* -------------------------------------------------------------------------- */
 .icon {
   color: var(--icon-primary);
   font-size: 1.2em;
-  /* Consistent sizing */
   display: inline-block;
   vertical-align: middle;
-  /* Use logical properties for spacing */
   margin-inline-end: 0.3em;
 }
 
-/* -------------------------------------------------------------------------- */
 /* Forms */
-/* -------------------------------------------------------------------------- */
 input[type="text"],
 input[type="email"],
 input[type="password"],
 textarea {
   display: block;
   width: 100%;
-  background-color: var(--input-bg);
-  color: var(--input-fg);
-  border: 1px solid var(--input-border);
+  background-color: var(--bgColor-default);
+  color: var(--fgColor-default);
+  border: 1px solid var(--borderColor-default);
   padding: 0.6rem 0.8rem;
   border-radius: 4px;
   font-size: 1rem;
@@ -272,7 +259,7 @@ input[type="text"]::placeholder,
 input[type="email"]::placeholder,
 input[type="password"]::placeholder,
 textarea::placeholder {
-  color: var(--input-placeholder-fg);
+  color: var(--control-fgColor-placeholder);
   opacity: 0.8;
 }
 
@@ -281,18 +268,15 @@ input[type="email"]:focus,
 input[type="password"]:focus,
 textarea:focus {
   outline: none;
-  border-color: var(--input-focus-border);
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--focus-ring-color) 50%, transparent);
+  border-color: var(--borderColor-accent-emphasis);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--focus-outlineColor) 50%, transparent);
 }
 
-/* -------------------------------------------------------------------------- */
-/* Code Blocks */
-/* -------------------------------------------------------------------------- */
 pre,
 code {
   font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-  background-color: var(--text-preformat-bg);
-  color: var(--text-preformat-fg);
+  background-color: var(--bgColor-inset);
+  color: var(--fgColor-default);
   padding: 0.2em 0.4em;
   border-radius: 3px;
   font-size: 0.9em;
@@ -305,24 +289,21 @@ pre {
   padding: 1em;
   overflow-x: auto;
   border-radius: 6px;
-  border: 1px solid var(--border-default);
+  /* Use border-default */
+  border: var(--border-default);
   margin: 1em 0;
 }
 
-/* -------------------------------------------------------------------------- */
-/* Utility Classes (Optional, but good practice for common patterns) */
-/* -------------------------------------------------------------------------- */
-
 .text-muted {
-  color: var(--text-secondary);
+  color: var(--fgColor-muted);
 }
 
 .bg-default {
-  background-color: var(--bg-default);
+  background-color: var(--bgColor-default);
 }
 
 .bg-muted {
-  background-color: var(--bg-muted);
+  background-color: var(--bgColor-muted);
 }
 
 .bg-emphasis {
@@ -330,15 +311,15 @@ pre {
 }
 
 .bg-accent-muted {
-  background-color: var(--bg-accent-muted);
+  background-color: var(--bgColor-accent-muted);
 }
 
 .border-default {
-  border-color: var(--border-default);
+  border: var(--border-default);
 }
 
 .border-accent {
-  border-color: var(--border-accent);
+  border: var(--border-accent-emphasis);
 }
 
 .flex-center {
