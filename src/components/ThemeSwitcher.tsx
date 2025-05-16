@@ -1,37 +1,25 @@
-'use client';
-
-import { useEffect, useState } from 'react';
+'use server';
 import { setThemeCookie } from '@/app/utils/actions';
+import { cookies } from 'next/headers';
+import { revalidatePath } from 'next/cache';
 
-export function ThemeSwitcher() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
-  const [mounted, setMounted] = useState(false);
+export default async function ThemeSwitcher() {
+  const cookieStore = await cookies();
+  const theme = cookieStore.get('theme');
+  const currentTheme = theme?.value === 'light' ? 'light' : 'dark';
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
-  // useEffect to read the initial theme from the ssr data-theme attribute
-  useEffect(() => {
-    const initialTheme = document.documentElement.getAttribute('data-theme') as 'light' | 'dark' || 'dark';
-    setTheme(initialTheme);
-    setMounted(true);
-  }, []);
-
-  // Don't show the button until the component render
-  if (!mounted) {
-    return null;
+  async function toggleTheme() {
+    'use server';
+    await setThemeCookie(newTheme);
+    revalidatePath('/');
   }
 
-  // Function to update data-theme
-  const toggleTheme = async () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme);
-
-    // Call the server action to update the cookie
-    await setThemeCookie(newTheme);
-  };
-
   return (
-    <button className='secondary' onClick={toggleTheme}>
-      {theme === 'dark' ? 'Light' : 'Dark'} Mode
-    </button>
+    <form action={toggleTheme}>
+      <button type="submit" className='secondary'>
+        {newTheme === 'dark' ? 'Dark' : 'Light'} Mode
+      </button>
+    </form>
   );
 }

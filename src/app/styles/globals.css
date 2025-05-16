@@ -28,7 +28,7 @@ header {
 }
 
 .sidebar {
-  background-color: var(--bgColor-default);
+  background-color: var(--sidebar-bgColor);
   color: var(--fgColor-default);
   width: 250px;
   height: calc(100vh);
@@ -73,7 +73,7 @@ a:hover {
 }
 
 .sidebar {
-  border-right: 1px solid var(--color-border-muted); 
+  border-right: 1px solid var(--borderColor-muted); 
 }
 
 .sidebar a {

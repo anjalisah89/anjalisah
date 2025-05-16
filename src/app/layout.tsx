@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import { cookies } from "next/headers";
 import "./styles/globals.css";
-import "./styles/themes/light.css";
-import "./styles/themes/dark.css";
+import { cookies } from "next/headers";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,9 +16,15 @@ export default async function RootLayout({
   const theme = cookieStore.get('theme');
   const initialTheme = theme?.value === 'light' ? 'light' : 'dark';
 
+  const setTheme = initialTheme === 'dark'
+    ? "/themes/dark.css"
+    : "/themes/light.css";
+
   return (
-    // Set the data-theme attribute based on the server-read cookie
-    <html lang="en" data-theme={initialTheme} suppressHydrationWarning>
+    <html lang="en">
+      <head>
+        <link rel="stylesheet" href={setTheme} />
+      </head>
       <body>
         {children}
       </body>

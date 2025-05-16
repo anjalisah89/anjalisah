@@ -1,7 +1,6 @@
 /* Light Theme - GitHub Quite Light*/
 
-html[data-theme='light'] {
-
+:root {
     /* Background Colors */
     --bgColor-default: #F5F5F5;
     --bgColor-inset: #EDEDF5;
@@ -25,7 +24,7 @@ html[data-theme='light'] {
     --bgColor-neutral-emphasis: #656c76;
     --bgColor-neutral-muted: #656c7633;
 
-    /* Semantic State Background Colors (aliases referencing light values) */
+    /* Semantic State Background Colors */
     --bgColor-open-emphasis: var(--bgColor-success-emphasis);
     --bgColor-open-muted: var(--bgColor-success-muted);
     --bgColor-closed-emphasis: var(--bgColor-danger-emphasis);
@@ -40,18 +39,26 @@ html[data-theme='light'] {
     --fgColor-onEmphasis: #ffffff;
     --fgColor-onInverse: #54494B;
     --fgColor-link: #705697;
+    --fgColor-black: #010409;
+    --fgColor-white: #ffffff;
+    --fgColor-closed: var(--fgColor-danger);
+    --fgColor-open: var(--fgColor-success);
+    --fgColor-upsell: var(--fgColor-done);
 
     /* State/Intent Foreground Colors */
+    --fgColor-attention: #d29922;
+    --fgColor-danger: #f85149;
+    --fgColor-disabled: #656c7699;
+    --fgColor-done: #ab7df8;
+    --fgColor-muted: #9198a1;
+    --fgColor-neutral: #9198a1;
+    --fgColor-severe: #db6d28;
+    --fgColor-sponsors: #db61a2;
+    --fgColor-success: #3fb950;
     --fgColor-accent: var(--fgColor-link);
-    --fgColor-success: var(--bgColor-success-emphasis);
-    --fgColor-danger: var(--bgColor-danger-emphasis);
-    --fgColor-attention: var(--bgColor-attention-emphasis);
-    --fgColor-severe: var(--bgColor-severe-emphasis);
-    --fgColor-done: var(--bgColor-done-emphasis);
-    --fgColor-sponsors: var(--bgColor-sponsors-emphasis);
-    --fgColor-neutral: var(--fgColor-muted);
 
-    /* Semantic State Foreground Colors (aliases referencing light values) */
+
+    /* Semantic State Foreground Colors */
     --fgColor-open: var(--fgColor-success);
     --fgColor-closed: var(--fgColor-danger);
     --fgColor-upsell: var(--fgColor-done);
@@ -78,15 +85,7 @@ html[data-theme='light'] {
     --borderColor-neutral-emphasis: var(--borderColor-emphasis);
     --borderColor-neutral-muted: var(--borderColor-muted);
 
-    /* Semantic State Border Colors (aliases referencing light values) */
-    --borderColor-open-emphasis: var(--borderColor-success-emphasis);
-    --borderColor-open-muted: var(--borderColor-success-muted);
-    --borderColor-closed-emphasis: var(--borderColor-danger-emphasis);
-    --borderColor-closed-muted: var(--borderColor-danger-muted);
-    --borderColor-upsell-emphasis: var(--borderColor-done-emphasis);
-    --borderColor-upsell-muted: var(--borderColor-done-muted);
-
-    /* Border Shorthands (using the defined border colors) */
+    /* Border Shorthands */
     --border-default: 0.0625rem solid var(--borderColor-default);
     --border-muted: 0.0625rem solid var(--borderColor-muted);
     --border-emphasis: 0.0625rem solid var(--borderColor-emphasis);
@@ -111,7 +110,7 @@ html[data-theme='light'] {
     --border-neutral-emphasis: var(--border-emphasis);
     --border-neutral-muted: var(--border-muted);
 
-    /* Semantic State Border Shorthands (aliases referencing light values) */
+    /* Semantic State Border Shorthands */
     --border-open-emphasis: var(--border-success-emphasis);
     --border-open-muted: var(--border-success-muted);
     --border-closed-emphasis: var(--border-danger-emphasis);
@@ -119,9 +118,23 @@ html[data-theme='light'] {
     --border-upsell-emphasis: var(--border-done-emphasis);
     --border-upsell-muted: var(--border-done-muted);
 
-    /* Icons */
-    --icon-primary: #705697;
-    --icon-secondary: #9769dc;
+    /* Shadows */
+    --shadow-floating-legacy: 0px 6px 12px -3px #01040966, 0px 6px 18px 0px #01040966;
+    --shadow-inset: inset 0px 1px 0px 0px #0104093d;
+    --shadow-resting-medium: 0px 1px 1px 0px #01040966, 0px 3px 6px 0px #010409cc;
+    --shadow-resting-small: 0px 1px 1px 0px #01040999, 0px 1px 3px 0px #01040999;
+    --shadow-resting-xsmall: 0px 1px 1px 0px #010409cc;
+    --shadow-floating-large: 0px 0px 0px 1px #3d444d, 0px 24px 48px 0px #010409;
+    --shadow-floating-medium: 0px 0px 0px 1px #3d444d, 0px 8px 16px -4px #01040966, 0px 4px 32px -4px #01040966, 0px 24px 48px -12px #01040966, 0px 48px 96px -24px #01040966;
+    --shadow-floating-small: 0px 0px 0px 1px #3d444d, 0px 6px 12px -3px #01040966, 0px 6px 18px 0px #01040966;
+    --shadow-floating-xlarge: 0px 0px 0px 1px #3d444d, 0px 32px 64px 0px #010409;
+
+    /* Avatars */
+    --avatar-bgColor: #f5f5f5;
+    --avatar-borderColor: var(--borderColor-translucent);
+    --avatar-shadow: 0px 0px 0px 2px #0d1117;
+    --avatarStack-fade-bgColor-default: #3d444d;
+    --avatarStack-fade-bgColor-muted: #2a313c;
 
     /* Buttons */
     /* Primary Button */
@@ -131,7 +144,7 @@ html[data-theme='light'] {
     --button-primary-bgColor-hover: #5e4a81;
     --button-primary-bgColor-active: #524071;
     --button-primary-bgColor-disabled: #c4b7d7;
-    --button-primary-fgColor-disabled: #F5F5F5;
+    --button-primary-fgColor-disabled: #f5f5f5;
     --button-primary-borderColor-disabled: var(--borderColor-default);
 
     /* Secondary Button */
@@ -167,7 +180,7 @@ html[data-theme='light'] {
     --button-outline-fgColor-disabled: rgba(112, 86, 151, 0.5);
     --button-outline-borderColor-disabled: rgba(112, 86, 151, 0.5);
 
-    /* Control Variables (Consolidated and using light theme values) */
+    /* Form Controls (Checkboxes, Radios, etc.) */
     --control-bgColor-rest: var(--bgColor-default);
     --control-bgColor-hover: var(--bgColor-inset);
     --control-bgColor-active: var(--bgColor-default);
@@ -212,6 +225,12 @@ html[data-theme='light'] {
     --control-transparent-borderColor-hover: #00000000;
     --control-transparent-borderColor-active: #00000000;
 
+    /* Reaction Buttons */
+    --reactionButton-selected-bgColor-hover: #3a8cfd5c;
+    --reactionButton-selected-bgColor-rest: #388bfd33;
+    --reactionButton-selected-fgColor-hover: #79c0ff;
+    --reactionButton-selected-fgColor-rest: var(--fgColor-link);
+
     /* Header */
     --header-bgColor: #c4b7d7;
     --header-fgColor-default: var(--fgColor-default);
@@ -219,37 +238,30 @@ html[data-theme='light'] {
     --header-borderColor-divider: var(--borderColor-default);
 
     /* Sidebar/Nav */
-    --sidebar-bg: #F2F2F2;
-    --sidebar-fg: var(--icon-primary);
-    --sidebar-border: #e0e0e0;
-    --sideNav-bgColor-selected: #e0e0e0;
+    --sidebar-bgColor: #F2F2F2;
     --sidebar-link-bgColor-hover: var(--bgColor-muted);
-    --underlineNav-borderColor-active: var(--fgColor-link);
 
-    /* Overlays/Modals (Define light theme values if needed) */
+    /* Cards/Containers */
+    --card-bgColor: var(--bgColor-muted);
+
+    /* Overlays/Modals */
     --overlay-bgColor: var(--bgColor-muted);
     --overlay-borderColor: var(--borderColor-muted);
 
     /* Misc Components */
-    --main-content-bgColor: var(--bgColor-default);
     --page-header-bgColor: var(--bgColor-default);
+    --skeletonLoader-bgColor: #656c7633;
+    --timelineBadge-bgColor: #212830;
     --topicTag-borderColor: #00000000;
     --menu-bgColor-active: var(--bgColor-muted);
+    --main-content-bgColor: var(--bgColor-default);
+    --highlight-neutral-bgColor: #d2992266;
+    --selectMenu-bgColor-active: #0c2d6b;
+    --selectMenu-borderColor: var(--borderColor-default);
     --selectMenu-borderColor: var(--borderColor-default);
 
     /* Focus Styles */
     --focus-ring-color: var(--borderColor-accent-emphasis);
     --focus-outline: 2px solid var(--focus-ring-color);
     --focus-outlineColor: var(--focus-ring-color);
-
-    /* Preformatted Text */
-    --text-preformat-fg: #54494B;
-    --text-preformat-bg: #e0e0e0;
-
-    /* Error State */
-    --error-foreground: #f1897f;
-
-    /* Background Gradients */
-    --bg-gradient-in: #E0E0E0;
-    --bg-gradient-out: rgba(240, 240, 240, 0);
 }

@@ -30,7 +30,7 @@
     --bgColor-neutral-emphasis: #656c76;
     --bgColor-neutral-muted: #656c7633;
 
-    /* Semantic State Background Colors (often aliases) */
+    /* Semantic State Background Colors */
     --bgColor-open-emphasis: var(--bgColor-success-emphasis);
     --bgColor-open-muted: var(--bgColor-success-muted);
     --bgColor-closed-emphasis: var(--bgColor-danger-emphasis);
@@ -58,7 +58,7 @@
     --fgColor-sponsors: #db61a2;
     --fgColor-neutral: #9198a1;
 
-    /* Semantic State Foreground Colors (often aliases) */
+    /* Semantic State Foreground Colors */
     --fgColor-open: var(--fgColor-success);
     --fgColor-closed: var(--fgColor-danger);
     --fgColor-upsell: var(--fgColor-done);
@@ -89,8 +89,7 @@
     --borderColor-neutral-emphasis: var(--borderColor-emphasis);
     --borderColor-neutral-muted: var(--borderColor-muted);
 
-
-    /* Border Shorthands (using the defined border colors) */
+    /* Border Shorthands */
     --border-default: 0.0625rem solid var(--borderColor-default);
     --border-muted: 0.0625rem solid var(--borderColor-muted);
     --border-emphasis: 0.0625rem solid var(--borderColor-emphasis);
@@ -115,15 +114,13 @@
     --border-neutral-emphasis: 0.0625rem solid var(--borderColor-neutral-emphasis);
     --border-neutral-muted: 0.0625rem solid var(--borderColor-neutral-muted);
 
-
-    /* Semantic State Border Shorthands (often aliases) */
+    /* Semantic State Border Shorthands */
     --border-open-emphasis: var(--border-success-emphasis);
     --border-open-muted: var(--border-success-muted);
     --border-closed-emphasis: var(--border-danger-emphasis);
     --border-closed-muted: var(--border-danger-muted);
     --border-upsell-emphasis: var(--border-done-emphasis);
     --border-upsell-muted: var(--border-done-muted);
-
 
     /* Shadows */
     --shadow-floating-legacy: 0px 6px 12px -3px #01040966, 0px 6px 18px 0px #01040966;
@@ -175,7 +172,7 @@
     --button-danger-bgColor-hover: #b62324;
     --button-danger-bgColor-active: #d03533;
     --button-danger-bgColor-disabled: var(--bgColor-disabled);
-    --button-danger-fgColor-rest: #f7adab;
+    --button-danger-fgColor-rest: #e0e0e0;
     --button-danger-fgColor-hover: #ffffff;
     --button-danger-fgColor-active: #ffffff;
     --button-danger-fgColor-disabled: #f8514980;
@@ -202,23 +199,6 @@
     --button-outline-borderColor-disabled: var(--borderColor-disabled);
     --button-outline-shadow-selected: 0px 0px 0px 0px #000000;
 
-    /* Darken Invisible */
-    --button-invisible-bgColor-rest: var(--bgColor-transparent);
-    --button-invisible-bgColor-hover: var(--control-transparent-bgColor-hover);
-    --button-invisible-bgColor-active: var(--control-transparent-bgColor-active);
-    --button-invisible-bgColor-disabled: #00000000;
-    --button-invisible-fgColor-rest: var(--fgColor-default);
-    --button-invisible-fgColor-hover: var(--fgColor-default);
-    --button-invisible-fgColor-active: var(--fgColor-default);
-    --button-invisible-fgColor-disabled: var(--fgColor-disabled);
-    --button-invisible-borderColor-rest: #00000000;
-    --button-invisible-borderColor-hover: #00000000;
-    --button-invisible-borderColor-disabled: #00000000;
-    --button-invisible-iconColor-rest: var(--fgColor-muted);
-    --button-invisible-iconColor-hover: var(--fgColor-muted);
-    --button-invisible-iconColor-disabled: var(--fgColor-disabled);
-
-
     --button-inactive-bgColor: #262c36;
     --button-inactive-fgColor: #9198a1;
     --button-star-iconColor: #e3b341;
@@ -233,7 +213,6 @@
     --buttonCounter-danger-fgColor-rest: var(--fgColor-danger);
     --buttonCounter-danger-fgColor-hover: #ffffff;
     --buttonCounter-danger-fgColor-disabled: #f8514980;
-    --buttonCounter-invisible-bgColor-rest: var(--bgColor-neutral-muted);
     --buttonCounter-outline-bgColor-rest: #051d4d33;
     --buttonCounter-outline-bgColor-hover: #051d4d33;
     --buttonCounter-outline-bgColor-disabled: #1f6feb0d;
@@ -266,10 +245,8 @@
     --control-checked-bgColor-hover: #2a7aef;
     --control-checked-bgColor-active: #3685f3;
     --control-checked-bgColor-disabled: var(--fgColor-disabled);
-    /* Uses disabled fg for disabled state */
     --control-checked-fgColor-rest: var(--fgColor-onEmphasis);
     --control-checked-fgColor-disabled: #010409;
-    /* Uses black for disabled fg */
     --control-checked-borderColor-rest: var(--control-checked-bgColor-rest);
     --control-checked-borderColor-hover: var(--control-checked-bgColor-hover);
     --control-checked-borderColor-active: var(--control-checked-bgColor-active);
@@ -291,34 +268,11 @@
     --control-transparent-borderColor-hover: #00000000;
     --control-transparent-borderColor-active: #00000000;
 
-    /* Control Track (for sliders/toggles) */
-    --controlTrack-bgColor-rest: #262c36;
-    --controlTrack-bgColor-hover: #2a313c;
-    --controlTrack-bgColor-active: #2f3742;
-    --controlTrack-bgColor-disabled: var(--fgColor-disabled);
-    --controlTrack-fgColor-rest: var(--fgColor-muted);
-    --controlTrack-fgColor-disabled: var(--fgColor-onEmphasis);
-    --controlTrack-borderColor-rest: var(--borderColor-default);
-    --controlTrack-borderColor-disabled: var(--fgColor-disabled);
-
-    /* Control Knob (for sliders/toggles) */
-    --controlKnob-bgColor-rest: var(--bgColor-inset);
-    --controlKnob-bgColor-checked: #ffffff;
-    --controlKnob-bgColor-disabled: var(--bgColor-disabled);
-    --controlKnob-borderColor-rest: var(--control-borderColor-emphasis);
-    --controlKnob-borderColor-checked: var(--control-checked-bgColor-rest);
-    --controlKnob-borderColor-disabled: var(--control-bgColor-disabled);
-
     /* Reaction Buttons */
     --reactionButton-selected-bgColor-rest: #388bfd33;
     --reactionButton-selected-bgColor-hover: #3a8cfd5c;
     --reactionButton-selected-fgColor-rest: var(--fgColor-link);
     --reactionButton-selected-fgColor-hover: #79c0ff;
-
-    /* Counters (standalone) */
-    --counter-bgColor-emphasis: var(--bgColor-neutral-emphasis);
-    --counter-bgColor-muted: var(--bgColor-neutral-muted);
-    --counter-borderColor: #00000000;
 
     /* Header */
     --header-bgColor: #151b23f2;
@@ -331,11 +285,8 @@
     --headerSearch-borderColor: #2a313c;
 
     /* Sidebar/Nav */
-    --sideNav-bgColor-selected: #212830;
-    --underlineNav-borderColor-active: #f78166;
-    --underlineNav-borderColor-hover: var(--borderColor-neutral-muted);
-    --underlineNav-iconColor-rest: var(--fgColor-muted);
-
+    --sidebar-bgColor: var(--bgColor-default);
+    --sidebar-link-bgColor-hover: var(--bgColor-muted);
 
     /* Cards/Containers */
     --card-bgColor: var(--bgColor-muted);
@@ -345,10 +296,6 @@
     --overlay-backdrop-bgColor: #21283066;
     --overlay-borderColor: var(--borderColor-muted);
 
-    /* Tooltips */
-    --tooltip-bgColor: var(--bgColor-emphasis);
-    --tooltip-fgColor: var(--fgColor-onEmphasis);
-
     /* Misc Components */
     --page-header-bgColor: var(--bgColor-default);
     --skeletonLoader-bgColor: #656c7633;
@@ -356,14 +303,13 @@
     --topicTag-borderColor: #00000000;
     --menu-bgColor-active: #151b23;
     --main-content-bgColor: var(--bgColor-black);
+    --highlight-neutral-bgColor: #d2992266;
     --selectMenu-bgColor-active: #0c2d6b;
     --selectMenu-borderColor: var(--borderColor-default);
-    --highlight-neutral-bgColor: #d2992266;
     --selection-bgColor: #1f6febb3;
-    --diffBlob-hunkNum-fgColor-hover: var(--fgColor-onEmphasis);
-    --treeViewItem-leadingVisual-iconColor-rest: var(--fgColor-muted);
 
     /* Focus Styles */
+    --focus-ring-color: var(--borderColor-accent-emphasis);
     --focus-outline: 2px solid var(--borderColor-accent-emphasis);
     --focus-outlineColor: var(--borderColor-accent-emphasis);
 }
