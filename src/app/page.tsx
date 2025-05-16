@@ -1,13 +1,8 @@
-import { ThemeSwitcher } from '@/components/ThemeSwitcher';
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 export default function HomePage() {
   return (
     <div>
-      <header>
-        <h1>My App</h1>
-        <ThemeSwitcher />
-      </header>
-
       {/* Sidebar navigation */}
       <div className="sidebar">
         <p>Sidebar</p>
@@ -18,6 +13,7 @@ export default function HomePage() {
 
       {/* Main content area */}
       <main className="main-content">
+        <ThemeSwitcher />
         <h2>Welcome to the App!</h2>
         <p>This page demonstrates the dark and light theme switching.</p>
 

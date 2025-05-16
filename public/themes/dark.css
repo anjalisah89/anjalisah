@@ -1,0 +1,315 @@
+/* Dark Theme (Default) - GitHub Primer-like variables */
+
+:root {
+    /* Background Colors */
+    --bgColor-default: #0d1117;
+    --bgColor-inset: #010409;
+    --bgColor-muted: #151b23;
+    --bgColor-emphasis: #3d444d;
+    --bgColor-disabled: #212830;
+    --bgColor-transparent: #00000000;
+    --bgColor-inverse: #ffffff;
+    --bgColor-black: #010409;
+    --bgColor-white: #ffffff;
+
+    /* State/Intent Background Colors */
+    --bgColor-accent-emphasis: #1f6feb;
+    --bgColor-accent-muted: #388bfd1a;
+    --bgColor-success-emphasis: #238636;
+    --bgColor-success-muted: #2ea04326;
+    --bgColor-danger-emphasis: #da3633;
+    --bgColor-danger-muted: #f851491a;
+    --bgColor-attention-emphasis: #9e6a03;
+    --bgColor-attention-muted: #bb800926;
+    --bgColor-severe-emphasis: #bd561d;
+    --bgColor-severe-muted: #db6d281a;
+    --bgColor-done-emphasis: #8957e5;
+    --bgColor-done-muted: #ab7df826;
+    --bgColor-sponsors-emphasis: #bf4b8a;
+    --bgColor-sponsors-muted: #db61a21a;
+    --bgColor-neutral-emphasis: #656c76;
+    --bgColor-neutral-muted: #656c7633;
+
+    /* Semantic State Background Colors */
+    --bgColor-open-emphasis: var(--bgColor-success-emphasis);
+    --bgColor-open-muted: var(--bgColor-success-muted);
+    --bgColor-closed-emphasis: var(--bgColor-danger-emphasis);
+    --bgColor-closed-muted: var(--bgColor-danger-muted);
+    --bgColor-upsell-emphasis: var(--bgColor-done-emphasis);
+    --bgColor-upsell-muted: var(--bgColor-done-muted);
+
+    /* Foreground/Text Colors */
+    --fgColor-default: #f0f6fc;
+    --fgColor-muted: #9198a1;
+    --fgColor-disabled: #656c7699;
+    --fgColor-onEmphasis: #ffffff;
+    --fgColor-onInverse: #010409;
+    --fgColor-link: var(--fgColor-accent);
+    --fgColor-black: #010409;
+    --fgColor-white: #ffffff;
+
+    /* State/Intent Foreground Colors */
+    --fgColor-accent: #4493f8;
+    --fgColor-success: #3fb950;
+    --fgColor-danger: #f85149;
+    --fgColor-attention: #d29922;
+    --fgColor-severe: #db6d28;
+    --fgColor-done: #ab7df8;
+    --fgColor-sponsors: #db61a2;
+    --fgColor-neutral: #9198a1;
+
+    /* Semantic State Foreground Colors */
+    --fgColor-open: var(--fgColor-success);
+    --fgColor-closed: var(--fgColor-danger);
+    --fgColor-upsell: var(--fgColor-done);
+
+    /* Border Colors */
+    --borderColor-default: #3d444d;
+    --borderColor-muted: #3d444db3;
+    --borderColor-emphasis: #656c76;
+    --borderColor-disabled: #656c761a;
+    --borderColor-transparent: #00000000;
+    --borderColor-translucent: #ffffff26;
+
+    /* State/Intent Border Colors */
+    --borderColor-accent-emphasis: #1f6feb;
+    --borderColor-accent-muted: #388bfd66;
+    --borderColor-success-emphasis: #238636;
+    --borderColor-success-muted: #2ea04366;
+    --borderColor-danger-emphasis: #da3633;
+    --borderColor-danger-muted: #f8514966;
+    --borderColor-attention-emphasis: #9e6a03;
+    --borderColor-attention-muted: #bb800966;
+    --borderColor-severe-emphasis: #bd561d;
+    --borderColor-severe-muted: #db6d2866;
+    --borderColor-done-emphasis: #8957e5;
+    --borderColor-done-muted: #ab7df866;
+    --borderColor-sponsors-emphasis: #bf4b8a;
+    --borderColor-sponsors-muted: #db61a266;
+    --borderColor-neutral-emphasis: var(--borderColor-emphasis);
+    --borderColor-neutral-muted: var(--borderColor-muted);
+
+    /* Border Shorthands */
+    --border-default: 0.0625rem solid var(--borderColor-default);
+    --border-muted: 0.0625rem solid var(--borderColor-muted);
+    --border-emphasis: 0.0625rem solid var(--borderColor-emphasis);
+    --border-disabled: 0.0625rem solid var(--borderColor-disabled);
+    --border-transparent: 0.0625rem solid var(--borderColor-transparent);
+
+    /* State/Intent Border Shorthands */
+    --border-accent-emphasis: 0.0625rem solid var(--borderColor-accent-emphasis);
+    --border-accent-muted: 0.0625rem solid var(--borderColor-accent-muted);
+    --border-success-emphasis: 0.0625rem solid var(--borderColor-success-emphasis);
+    --border-success-muted: 0.0625rem solid var(--borderColor-success-muted);
+    --border-danger-emphasis: 0.0625rem solid var(--borderColor-danger-emphasis);
+    --border-danger-muted: 0.0625rem solid var(--borderColor-danger-muted);
+    --border-attention-emphasis: 0.0625rem solid var(--borderColor-attention-emphasis);
+    --border-attention-muted: 0.0625rem solid var(--borderColor-attention-muted);
+    --border-severe-emphasis: 0.0625rem solid var(--borderColor-severe-emphasis);
+    --border-severe-muted: 0.0625rem solid var(--borderColor-severe-muted);
+    --border-done-emphasis: 0.0625rem solid var(--borderColor-done-emphasis);
+    --border-done-muted: 0.0625rem solid var(--borderColor-done-muted);
+    --border-sponsors-emphasis: 0.0625rem solid var(--borderColor-sponsors-emphasis);
+    --border-sponsors-muted: 0.0625rem solid var(--borderColor-sponsors-muted);
+    --border-neutral-emphasis: 0.0625rem solid var(--borderColor-neutral-emphasis);
+    --border-neutral-muted: 0.0625rem solid var(--borderColor-neutral-muted);
+
+    /* Semantic State Border Shorthands */
+    --border-open-emphasis: var(--border-success-emphasis);
+    --border-open-muted: var(--border-success-muted);
+    --border-closed-emphasis: var(--border-danger-emphasis);
+    --border-closed-muted: var(--border-danger-muted);
+    --border-upsell-emphasis: var(--border-done-emphasis);
+    --border-upsell-muted: var(--border-done-muted);
+
+    /* Shadows */
+    --shadow-floating-legacy: 0px 6px 12px -3px #01040966, 0px 6px 18px 0px #01040966;
+    --shadow-inset: inset 0px 1px 0px 0px #0104093d;
+    --shadow-resting-xsmall: 0px 1px 1px 0px #010409cc;
+    --shadow-resting-small: 0px 1px 1px 0px #01040999, 0px 1px 3px 0px #01040999;
+    --shadow-resting-medium: 0px 1px 1px 0px #01040966, 0px 3px 6px 0px #010409cc;
+    --shadow-floating-small: 0px 0px 0px 1px var(--borderColor-default), 0px 6px 12px -3px #01040966, 0px 6px 18px 0px #01040966;
+    --shadow-floating-medium: 0px 0px 0px 1px var(--borderColor-default), 0px 8px 16px -4px #01040966, 0px 4px 32px -4px #01040966, 0px 24px 48px -12px #01040966, 0px 48px 96px -24px #01040966;
+    --shadow-floating-large: 0px 0px 0px 1px var(--borderColor-default), 0px 24px 48px 0px #010409;
+    --shadow-floating-xlarge: 0px 0px 0px 1px var(--borderColor-default), 0px 32px 64px 0px #010409;
+
+    /* Avatars */
+    --avatar-bgColor: #ffffff1a;
+    --avatar-borderColor: var(--borderColor-translucent);
+    --avatar-shadow: 0px 0px 0px 2px #0d1117;
+    --avatarStack-fade-bgColor-default: #3d444d;
+    --avatarStack-fade-bgColor-muted: #2a313c;
+
+    /* Buttons */
+    --button-default-bgColor-rest: var(--bgColor-disabled);
+    --button-default-bgColor-hover: #262c36;
+    --button-default-bgColor-active: #2a313c;
+    --button-default-bgColor-selected: var(--button-default-bgColor-active);
+    --button-default-fgColor-rest: var(--fgColor-default);
+    --button-default-borderColor-rest: var(--borderColor-default);
+    --button-default-borderColor-hover: var(--button-default-borderColor-rest);
+    --button-default-borderColor-active: var(--button-default-borderColor-rest);
+    --button-default-borderColor-disabled: var(--borderColor-disabled);
+    --button-default-bgColor-disabled: var(--bgColor-disabled);
+    --button-default-shadow-resting: 0px 0px 0px 0px #000000;
+
+    /* Darken success bg */
+    --button-primary-bgColor-rest: var(--bgColor-success-emphasis);
+    --button-primary-bgColor-hover: #29903b;
+    --button-primary-bgColor-active: #2e9a40;
+    --button-primary-bgColor-disabled: #105823;
+    --button-primary-fgColor-rest: var(--fgColor-white);
+    --button-primary-fgColor-disabled: #ffffff66;
+    --button-primary-borderColor-rest: #ffffff1a;
+    --button-primary-borderColor-hover: var(--button-primary-borderColor-rest);
+    --button-primary-borderColor-active: var(--button-primary-borderColor-rest);
+    --button-primary-borderColor-disabled: #105823;
+    --button-primary-iconColor-rest: var(--fgColor-white);
+    --button-primary-shadow-selected: 0px 0px 0px 0px #000000;
+
+    /* Darken danger bg */
+    --button-danger-bgColor-rest: var(--bgColor-danger-emphasis);
+    --button-danger-bgColor-hover: #b62324;
+    --button-danger-bgColor-active: #d03533;
+    --button-danger-bgColor-disabled: var(--bgColor-disabled);
+    --button-danger-fgColor-rest: #e0e0e0;
+    --button-danger-fgColor-hover: #ffffff;
+    --button-danger-fgColor-active: #ffffff;
+    --button-danger-fgColor-disabled: #f8514980;
+    --button-danger-borderColor-rest: var(--borderColor-danger-emphasis);
+    --button-danger-borderColor-hover: var(--button-primary-borderColor-rest);
+    --button-danger-borderColor-active: var(--button-danger-borderColor-hover);
+    --button-danger-borderColor-disabled: var(--borderColor-disabled);
+    --button-danger-iconColor-rest: #fa5e55;
+    --button-danger-iconColor-hover: #ffffff;
+    --button-danger-shadow-selected: 0px 0px 0px 0px #000000;
+
+    /* Darken outline bg */
+    --button-outline-bgColor-rest: var(--bgColor-transparent);
+    --button-outline-bgColor-hover: var(--control-bgColor-hover);
+    --button-outline-bgColor-active: #0d419d;
+    --button-outline-bgColor-disabled: var(--bgColor-disabled);
+    --button-outline-fgColor-rest: #388bfd;
+    --button-outline-fgColor-hover: #58a6ff;
+    --button-outline-fgColor-active: #ffffff;
+    --button-outline-fgColor-disabled: #4493f880;
+    --button-outline-borderColor-rest: var(--borderColor-accent-emphasis);
+    --button-outline-borderColor-hover: var(--button-default-borderColor-hover);
+    --button-outline-borderColor-active: var(--button-outline-borderColor-hover);
+    --button-outline-borderColor-disabled: var(--borderColor-disabled);
+    --button-outline-shadow-selected: 0px 0px 0px 0px #000000;
+
+    --button-inactive-bgColor: #262c36;
+    --button-inactive-fgColor: #9198a1;
+    --button-star-iconColor: #e3b341;
+    /* Yellow/Gold */
+
+    /* Button Counters */
+    --buttonCounter-default-bgColor-rest: #2f3742;
+    --buttonCounter-primary-bgColor-rest: #04260f33;
+    --buttonCounter-danger-bgColor-rest: #49020233;
+    --buttonCounter-danger-bgColor-hover: #ffffff33;
+    --buttonCounter-danger-bgColor-disabled: #da36330d;
+    --buttonCounter-danger-fgColor-rest: var(--fgColor-danger);
+    --buttonCounter-danger-fgColor-hover: #ffffff;
+    --buttonCounter-danger-fgColor-disabled: #f8514980;
+    --buttonCounter-outline-bgColor-rest: #051d4d33;
+    --buttonCounter-outline-bgColor-hover: #051d4d33;
+    --buttonCounter-outline-bgColor-disabled: #1f6feb0d;
+    --buttonCounter-outline-fgColor-rest: #388bfd;
+    --buttonCounter-outline-fgColor-hover: #58a6ff;
+    --buttonCounter-outline-fgColor-disabled: #4493f880;
+
+    /* Form Controls (Checkboxes, Radios, etc.) */
+    --control-bgColor-rest: #212830;
+    --control-bgColor-hover: #262c36;
+    --control-bgColor-active: #2a313c;
+    --control-bgColor-disabled: var(--bgColor-disabled);
+    --control-bgColor-selected: var(--control-bgColor-rest);
+    --control-fgColor-rest: var(--fgColor-default);
+    --control-fgColor-placeholder: var(--fgColor-muted);
+    --control-fgColor-disabled: var(--fgColor-disabled);
+    --control-iconColor-rest: var(--fgColor-muted);
+    --control-borderColor-rest: var(--borderColor-default);
+    --control-borderColor-emphasis: var(--borderColor-emphasis);
+    --control-borderColor-disabled: var(--borderColor-disabled);
+    --control-borderColor-selected: #f0f6fc;
+
+    /* State/Intent Control Borders */
+    --control-borderColor-success: var(--borderColor-success-emphasis);
+    --control-borderColor-danger: var(--borderColor-danger-emphasis);
+    --control-borderColor-warning: var(--borderColor-attention-emphasis);
+
+    /* Checked Controls */
+    --control-checked-bgColor-rest: var(--bgColor-accent-emphasis);
+    --control-checked-bgColor-hover: #2a7aef;
+    --control-checked-bgColor-active: #3685f3;
+    --control-checked-bgColor-disabled: var(--fgColor-disabled);
+    --control-checked-fgColor-rest: var(--fgColor-onEmphasis);
+    --control-checked-fgColor-disabled: #010409;
+    --control-checked-borderColor-rest: var(--control-checked-bgColor-rest);
+    --control-checked-borderColor-hover: var(--control-checked-bgColor-hover);
+    --control-checked-borderColor-active: var(--control-checked-bgColor-active);
+    --control-checked-borderColor-disabled: var(--control-checked-bgColor-disabled);
+
+    /* Danger Controls */
+    --control-danger-bgColor-hover: var(--bgColor-danger-muted);
+    --control-danger-bgColor-active: #f8514966;
+    --control-danger-fgColor-rest: var(--fgColor-danger);
+    --control-danger-fgColor-hover: #ff7b72;
+
+    /* Transparent Controls */
+    --control-transparent-bgColor-rest: #00000000;
+    --control-transparent-bgColor-hover: #656c7633;
+    --control-transparent-bgColor-active: #656c7640;
+    --control-transparent-bgColor-disabled: var(--bgColor-disabled);
+    --control-transparent-bgColor-selected: #656c761a;
+    --control-transparent-borderColor-rest: #00000000;
+    --control-transparent-borderColor-hover: #00000000;
+    --control-transparent-borderColor-active: #00000000;
+
+    /* Reaction Buttons */
+    --reactionButton-selected-bgColor-rest: #388bfd33;
+    --reactionButton-selected-bgColor-hover: #3a8cfd5c;
+    --reactionButton-selected-fgColor-rest: var(--fgColor-link);
+    --reactionButton-selected-fgColor-hover: #79c0ff;
+
+    /* Header */
+    --header-bgColor: #151b23f2;
+    --header-fgColor-default: #ffffffb3;
+    --header-fgColor-logo: #f0f6fc;
+    --header-borderColor-divider: #656c76;
+
+    /* Header Search */
+    --headerSearch-bgColor: #0d1117;
+    --headerSearch-borderColor: #2a313c;
+
+    /* Sidebar/Nav */
+    --sidebar-bgColor: var(--bgColor-default);
+    --sidebar-link-bgColor-hover: var(--bgColor-muted);
+
+    /* Cards/Containers */
+    --card-bgColor: var(--bgColor-muted);
+
+    /* Overlays/Modals */
+    --overlay-bgColor: var(--bgColor-muted);
+    --overlay-backdrop-bgColor: #21283066;
+    --overlay-borderColor: var(--borderColor-muted);
+
+    /* Misc Components */
+    --page-header-bgColor: var(--bgColor-default);
+    --skeletonLoader-bgColor: #656c7633;
+    --timelineBadge-bgColor: #212830;
+    --topicTag-borderColor: #00000000;
+    --menu-bgColor-active: #151b23;
+    --main-content-bgColor: var(--bgColor-black);
+    --highlight-neutral-bgColor: #d2992266;
+    --selectMenu-bgColor-active: #0c2d6b;
+    --selectMenu-borderColor: var(--borderColor-default);
+    --selection-bgColor: #1f6febb3;
+
+    /* Focus Styles */
+    --focus-ring-color: var(--borderColor-accent-emphasis);
+    --focus-outline: 2px solid var(--borderColor-accent-emphasis);
+    --focus-outlineColor: var(--borderColor-accent-emphasis);
+}
